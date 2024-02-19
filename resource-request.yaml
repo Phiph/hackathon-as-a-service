@@ -1,0 +1,13 @@
+---
+apiVersion: marketplace.kratix.io/v1
+kind: hackapp
+metadata:
+  name: todoer
+  namespace: default
+spec:
+  teamName: HackAaways
+  name: todoer
+  image: syntasso/sample-todo:v0.1.0
+  dbDriver: none
+  service:
+    port: 9000

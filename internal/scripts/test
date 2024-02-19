@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -e
+
+test_promise() {
+  kubectl apply -f https://raw.githubusercontent.com/syntasso/kratix-marketplace/main/app-as-a-service/promises/nginx-promise-release.yaml
+  kubectl apply -f https://raw.githubusercontent.com/syntasso/kratix-marketplace/main/app-as-a-service/promises/postgresql-promise-release.yaml
+  kubectl wait --for=condition=Available --namespace default deployment/postgres-operator
+  kubectl wait --for=condition=Available --namespace default deployment/nginx-nginx-ingress-controller
+  kubectl get crd apps.marketplace.kratix.io
+}
+
+test_resource_request() {
+  exit 0
+}
+
+if [ "$1" = "promise" ]; then
+  test_promise
+else
+  test_resource_request
+fi

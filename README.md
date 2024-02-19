@@ -31,12 +31,12 @@ The following fields are configurable:
 
 To install:
 ```
-kubectl create -f https://raw.githubusercontent.com/syntasso/kratix-marketplace/main/app-as-a-service/promise.yaml
+kubectl create -f https://raw.githubusercontent.com/Phiph/hackathon-as-a-service/main/promise.yaml
 ```
 
 To make a resource request:
 ```
-kubectl apply -f https://raw.githubusercontent.com/syntasso/kratix-marketplace/main/app-as-a-service/resource-request.yaml
+kubectl apply -f https://raw.githubusercontent.com/Phiph/hackathon-as-a-service/main/resource-request.yaml
 ```
 
 This resource request deploys the Kratix [sample Golang app](https://github.com/syntasso/sample-todo-list-app).

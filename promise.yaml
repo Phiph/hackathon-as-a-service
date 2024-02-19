@@ -29,6 +29,7 @@ spec:
                 properties:
                   teamName:
                     type: string
+                    description: Your team name for the hackathon, this will be used as your namespace in k8s
                   dbDriver:
                     default: none
                     description: database deployed with application
@@ -62,7 +63,6 @@ spec:
       version: v1.0.0-beta.1
     - name: nginx-ingress
       version: v1.0.0-beta.1
-    - name: namespace
   workflows:
     resource:
       configure:
@@ -72,12 +72,10 @@ spec:
             name: resource-configure
           spec:
             containers:
-              - name: create-namespace
-                image: ghcr.io/syntasso/kratix-marketplace/namespace-configure-pipeline:v0.1.0
               - name: create-resources
-                image: ghcr.io/syntasso/kratix-marketplace/app-as-a-service-configure-pipeline:v0.1.0
+                image: ghcr.io/phiph/hackathon-as-a-service/hack-as-a-service:latest
                 command: [ resource-configure ]
               - name: database-configure
-                image: ghcr.io/syntasso/kratix-marketplace/app-as-a-service-configure-pipeline:v0.1.0
+                image: ghcr.io/phiph/hackathon-as-a-service/hack-as-a-service:latest
                 command: [ database-configure ]
 status: {}

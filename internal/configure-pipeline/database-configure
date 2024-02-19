@@ -22,7 +22,7 @@ end
 puts "Postgresql database driver detected, including database resources"
 
 name = resource_request.dig('metadata', 'name')
-namespace = resource_request.dig('metadata', 'namespace')
+namespace = resource_request.dig('spec', 'teamname')
 
 teamId = "#{name}-team"
 dbName = "#{name}-db"

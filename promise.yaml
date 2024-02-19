@@ -42,6 +42,19 @@ spec:
                     description: container image for application that will be deployed
                     example: gcr.io/syntasso/great-app
                     type: string
+                    properties:
+                    env:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                          value:
+                            type: string
+                        required:
+                        - name
+                        - value
                   name:
                     type: string
                   service:

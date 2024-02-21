@@ -8,7 +8,7 @@ service_port=$(yq '.spec.service.port' /kratix/input/object.yaml)
 
 # Get the request name and namespace
 name=$(yq '.metadata.name' /kratix/input/object.yaml)
-namespace=$(yq '.metadata.teamName' /kratix/input/object.yaml)
+namespace=$(yq '.spec.teamName' /kratix/input/object.yaml)
 
 # Create a namespace
 kubectl create namespace ${namespace} 

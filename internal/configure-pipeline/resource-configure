@@ -10,10 +10,6 @@ service_port=$(yq '.spec.service.port' /kratix/input/object.yaml)
 name=$(yq '.metadata.name' /kratix/input/object.yaml)
 namespace=$(yq '.metadata.namespace' /kratix/input/object.yaml)
 
-# Create a namespace
-kubectl create namespace ${namespace} 
-    --dry-run=client 
-    --output yaml > /kratix/output/namespace.yaml
 
 # Create a deployment
 kubectl create deployment ${name} \
